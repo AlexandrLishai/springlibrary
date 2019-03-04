@@ -204,22 +204,26 @@ public class BookController extends AbstractController<Book> {
 
 
         String message=null;
+        try {
+            if (searchType == null) {
+                return null;
+            }
+            switch (searchType) {
+                case SEARCH_GENRE:
+                    message = bundle.getString("genre") + ": '" + genreDao.get(selectedGenreId) + "'";
+                    break;
+                case SEARCH_TEXT:
 
-        if (searchType==null){
-            return null;
-        }
-        switch (searchType) {
-            case SEARCH_GENRE:
-                message = bundle.getString("genre")+ ": '"+genreDao.get(selectedGenreId)+"'";
-                break;
-            case SEARCH_TEXT:
+                    if (searchText == null || searchText.trim().length() == 0) {
+                        return null;
+                    }
 
-                if (searchText==null || searchText.trim().length()==0){
-                    return null;
-                }
+                    message = bundle.getString("search") + ": '" + searchText + "'";
+                    break;
+            }
+        }catch (Exception e)
+        {
 
-                message = bundle.getString("search")+ ": '"+searchText+"'";
-                break;
         }
 
         return message;

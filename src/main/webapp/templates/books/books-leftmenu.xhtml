@@ -23,13 +23,13 @@
             <!--меню с навзваниями жанров (для поиска книг по жанрам) -->
             <p:repeat value="#{genreController.all}" var="genre" >
 
-                <!--<p:commandLink class="list-group-item" actionListener="#{bookController.showBooksByGenre(genre.id)}"
+                <p:commandLink class="list-group-item" actionListener="#{bookController.showBooksByGenre(genre.id)}"
                                update="@([id$=booksList])"><p:outputLabel value="#{genre.name}"
-                                                                          styleClass="genre-name"/> </p:commandLink>-->
+                                                                          styleClass="genre-name"/> </p:commandLink>
 
-                <h:commandButton class="list-group-item" actionListener="#{bookController.showBooksByGenre(genre.id)}"
+                <!--<h:commandButton class="list-group-item" actionListener="#{bookController.showBooksByGenre(genre.id)}"
                                  update="@([id$=booksList])"><p:outputLabel value="#{genre.name}"
-                                                                            styleClass="genre-name"/></h:commandButton>
+                                                                            styleClass="genre-name"/></h:commandButton>-->
             </p:repeat>
         </div>
 
