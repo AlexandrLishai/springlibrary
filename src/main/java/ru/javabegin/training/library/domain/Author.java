@@ -1,5 +1,6 @@
 package ru.javabegin.training.library.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -33,6 +34,7 @@ public class Author {
 
     private Date birthday;
 
+    @JsonIgnore
     // двухсторонняя связь с Book
     @Basic(fetch = FetchType.LAZY) // коллекция будет запрашиваться только по требованию (ленивая инициализация)
     @OneToMany(mappedBy = "author") // author должно совпадать с именем поля в классе Book
